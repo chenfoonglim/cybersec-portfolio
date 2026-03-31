@@ -1,0 +1,13 @@
+# A5. Discover cryptographic implementation used online.
+
+**Overview:** I identified two real world examples of cryptography used online, which are end-to-end encryption on Telegram, and Google passkeys. I did this by directly inspecting encryption settings directly in Telegram and researching and demonstrating passkeys on my Google Account.
+
+1. **End-to-End Encryption on Telegram**
+    - Telegram uses a custom protocol called MTProto 2.0 for encrypting messages. Telegram provides two types of encrypting types depending on the type of chats.
+        - Regular Chat: Encryption is Client to Server (TLS), telegram would be able to read the chat, and the key is stored on the server
+        - Secret Chat: Encryption is end-to-end, telegram will not be able to read the messages, and keys are never stored on the server
+    - Secret chats use Diffie-Hellman key exchange to establish a shared encryption key between the two devices without ever transmitting it so even if the traffic is intercepted, the key cannot be derived. The messages are then encrypted with AES-256. After the secure connection is established, Telegram generates a key visualisation, which both users can compare to verify no man-in-the-middle attack has occurred. This image is not the key itself and is safe to share, and I have included them below as evidence.
+2. **Google Passkeys**
+    - I have set up a passkey on my Google account at “myaccount.google.com/security”. Passkeys replace traditional passwords using public key cryptography. When created, a key pair is generated on my laptop, the private key would be stored on device, and the public key is stored by Google.
+    - When logging in, Google sends a cryptographic challenge to my laptop. I authenticate using Touch ID (fingerprint), which triggers the iCloud Keychain to access the private key, which is used by the Secure Enclave to sign it, and Google verifies the signature using the stored public key. The underlying algorithm is ES256, which is ECDSA with SHA-256, so the challenge is hashed with SHA-256, and signed using ECDSA using P-256 curve.
+    - This is stronger than traditional passwords as even if Google’s servers were compromised, the stolen public key alone is useless as an attacker cannot use it to find the private key. It is also phishing resistant as the private key only authenticates on the exact domain it was registered on, so a fake page replicating Google can never obtain valid credentials.

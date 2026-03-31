@@ -1,0 +1,7 @@
+# A24. Teach your family about cybersecurity topic of your choice.
+
+I created a bilingual slideshow (English and Mandarin) to teach my mother about “cybersecurity in daily life”. I chose this broader topic as she had little prior knowledge of cybersecurity. Therefore, I felt this would give her a good foundation across all key areas. I covered strong passwords, phishing, two factor authentication, Wi-Fi risks, device security and social media safety.
+
+I kept the conversation practical rather than technical. For passwords, I gave examples of what is classified as a weak password, and what is classified as a strong one. For phishing, I framed it around fake bank emails as those are a common scam tactic that targets her age group. I also explained the concept and importance of 2 factor authentication and helped her set up for one of her accounts.
+
+One topic she found interesting was the use of Public Wi-Fi, as she had assumed all Wi-Fi networks are equally safe. I explained that some Wi-Fi networks are often unencrypted, meaning others connected to the same network could potentially “see what she is doing” for lack of better term for network traffic. Hence, I reminded her to avoid logging into bank accounts or entering personal information especially when using public Wi-Fi, and to not use it when there is no passwords protecting the Wi-Fi. I advise her to stick to mobile data whenever available, which she found to be practical and easy to remember.

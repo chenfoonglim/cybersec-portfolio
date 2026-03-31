@@ -15,3 +15,10 @@
         Below are images I took showcasing how the privacy screen affects what you can see from different angles.
 
         (refer to `2_angle_1`,`2_angle_2` and `2_angle_3`)
+
+3. **MacBook hardware Camera Indicator and Microphone Disconnect**
+    - MacBooks have hardware-level privacy protections built into many of the physical design of the device. Two notable privacy measures are for the camera and the microphone.
+    - Camera Indicator: Apple redesigned the camera module so that the sensor and the green indicator light share the same physical circuit. This means that it is physically impossible for the camera to receive power unless the LED does too. This would mean no malicious software, no matter what privileges they have, can turn on the webcam without triggering the indicator.
+    - Microphone Disconnect: All Apple silicon MacBooks also feature a hardware disconnect that disables the microphone whenever the lid is closed. Similar to the camera indicator, this feature is implemented in hardware alone, this means any software even with root or kernel privileges in macOS will not be able to engage with the microphone when the lid is closed. This is done using a hinge angle sensor (or hall effect sensor) emitting a direct hardware signal through non-reprogrammable logic to physically cut the microphone connection.
+        
+        These privacy measures prevent any attackers or malwares to covertly recording me without my knowledge.

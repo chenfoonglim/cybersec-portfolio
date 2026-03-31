@@ -1,14 +1,26 @@
-# A8. Discover cryptography used in Internet of Things devices.
+# A9. Discover privacy technique used online.
 
-**Overview:** Cryptography is used in plenty of IoT devices, for this section I have identified two that I own, namely my Apple Watch and a smart LED strip that is controlled by the Tuya application on my phone.
+Overview: I identified three privacy techniques used online. A VPN, DNS over HTTPS, and Apple’s Hide My Email feature.
 
-1. **Apple Watch (Series 8)**
-    - The Apple Watch Series 8 is an IoT wearable device that continuously collects sensitive health data including heart rate, ECG readings and sleep patterns. It uses cryptography both to protect stored data and to establish a secure communication with the phone.
+1. **Norton Secure VPN**
+    - A VPN (Virtual Private Network) creates an encrypted tunnel between my device and VPN server, so all the internet traffic passes through that server rather than directly from my device. This hides my real IP address and encrypts my traffic from my Internet Service Provider and anyone monitoring the network.
         
-        When the watch pairs with an iPhone, each device generates a random Ed25519 public and private key pairs, and exchanges public keys. The Apple watch stores the private key to its own Secure Enclave. All communications after that between the phone and watch are encrypted using `AES-256-GCM` (used for confidentiality and integrity). The Bluetooth device address also rotates every 15 minutes to prevent the watch from being tracked by persistent identifiers.
+        Norton VPN uses `AES-256` and `ChaCha20` encryption, making every connection to the VPN server to be encrypted and unreadable to outsiders. On MacBooks, Norton uses the IKEv2/IPSec protocol. This is confirmed by the macOS VPN settings screenshot which shows the protocol as IKEv2, the server address as au.surfeasy.mobi, which is Norton’s Australian server, and machine authentication via certificate.
         
-        All Apple Watch S-series chip contains a built-in Secure Enclave, which handles all cryptographic operations in hardware, this means keys never leave the chip. This also means that without the password nor the right chip, the data will not be decrypted.
+        The ISP will only see the encrypted traffic going to Norton’s server rather than the actual browsing activity, and all traffic from my laptop is routed through this server, so websites that I visit now will see the server’s IP address rather than my real one, which is confirmed by visiting `whatismyipaddress.com`, where the website identified my IP address as `79.127.155.178`, which is the server IP address.
         
-2. **Smart LED Strips**
-    - I own a smart light that is connected to Trinity College’s Wi-Fi and controlled via the Tuya app. TLS 1.2 is used for the devices connected and the Tuya cloud, so when I control the light from my phone, the command travels from the app to Tuya’s cloud, and down to the device, all encrypted with TLS. Tuya also uses AES encryption on the device itself with a unique dynamic key per device, so even if the device is physically stolen, the data will still not be able to be deciphered.
-    - As seen in the device Information screenshot from the app, each device is assigned a unique Virtual ID, a device identifier that is flashed to the hardware at the factory. This is used by Tuya’s cloud to authenticate legitimate devices. This prevents other residents who have access to the same Wi-Fi network to potentially communicate and control the device.
+2. **DNS over HTTPS (DoH) in Firefox**
+    - DNS (Domain Name System) is the system that translates domain names like google.com into IP addresses. Normally, DNS queries are sent in plain text, this means that ISP or anyone on the network would be able to see every domain names (DNS queries) that you look up, even if the website is using HTTPS, as HTTPS encrypts contents, and DNS queries happens before a HTTPS connection, and is separate and unencrypted.
+        
+        DoH fixes this by wrapping DNS queries inside TLS encrypted HTTPS connections, making the queries unreadable to anyone intercepting the traffic. I enabled DoH in Firefox under `Settings --> Privacy & Security --> DNS over HTTPS`, setting it to Increased Protection with Cloudflare as the provider. The screenshot below shows the status.
+        
+        When this is selected, as Firefox looks up a domain, instead of sending a plaintext UDP packet to a DNS server, it sends an encrypted HTTP request to Cloudflare’s DoH2 endpoint at `https://cloudflare-dns.com/dns-query`. The query is protected by TLS, which is the same protocol that protects HTTPS websites,
+        
+        It is to be noted that ISPs can still see that I am connected to Cloudflare, and websites would be able to see my IP, so this just a privacy improvement, and does not provide anonymity.
+        
+3. **Apple Hide My Email**
+    - Hide My Email is an Apple iCloud feature that generates unique random email addresses that forward emails to my real inbox. To use it, when signing up for a website or service, instead of providing my real email address, I use the address generated by Apple’s Hide My Email feature. Using this, the service never learns my real email identity.
+        
+        As shown in the screenshot (refer to 3_hide_my_email), I have used Hide My Email across multiple services, including archive.org, and more. Each service gets a different randomly generated address. If a service starts sending spam or involved in a data breach, I can simply deactivate that specific address without affecting my real email.
+        
+        This is a privacy technique as it uses identity separation rather than encryption to protect my privacy. The real email address is never transmitted to the third-party service at all, so there is no data (data being the email address in their servers) to breach in the first place.

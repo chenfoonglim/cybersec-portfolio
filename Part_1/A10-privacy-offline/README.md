@@ -13,3 +13,5 @@
         This privacy filter works by embedding thousands of microscopic vertical slats on the filer. These slats are small enough to not be noticed by the naked eye. These slats make it so that when you look straight to the screen, light passes through the slats allowing you to see the screen normally, but looking at it from an angle, the slats block the light at that angle, making the screen appear dark or black from the side.
         
         Below are images I took showcasing how the privacy screen affects what you can see from different angles.
+
+        (refer to `2_angle_1`,`2_angle_2` and `2_angle_3`)

@@ -1,0 +1,5 @@
+{"timestamp":"2026-05-20T09:00:00+08:00","event_type":"login","user":"alice","src_ip":"203.0.113.10","message":"Successful login with normal account"}
+{"timestamp":"2026-05-20T09:03:00+08:00","event_type":"api_request","user":"service-app","src_ip":"203.0.113.20","message":"Authorization header used normal service token"}
+{"timestamp":"2026-05-20T09:07:00+08:00","event_type":"api_request","user":"unknown","src_ip":"198.51.100.77","message":"Authorization: Bearer sk_live_HONEYTOKEN_DO_NOT_USE_7f2a91"}
+{"timestamp":"2026-05-20T09:10:00+08:00","event_type":"page_view","user":"chen","src_ip":"203.0.113.30","message":"Admin dashboard viewed by authorised user"}
+

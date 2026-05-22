@@ -1,0 +1,17 @@
+[
+  {
+    "label": "fake-prod-api-key",
+    "value": "sk_live_HONEYTOKEN_DO_NOT_USE_7f2a91",
+    "type": "api_key",
+    "expected_use": "never",
+    "recommended_response": "Revoke exposed context, inspect source IP, review repository and access logs"
+  },
+  {
+    "label": "fake-admin-password",
+    "value": "Winter2026-HONEY-Admin!",
+    "type": "password",
+    "expected_use": "never",
+    "recommended_response": "Investigate credential access and rotate real admin credentials"
+  }
+]
+

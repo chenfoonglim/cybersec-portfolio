@@ -1,0 +1,6 @@
+indicator,type,category,confidence,source
+malware.testcategory.com,domain,malware,high,Cloudflare test domain
+198.51.100.44,ip,credential stuffing test,medium,local lab sample
+203.0.113.60,ip,ssh brute force test,medium,local lab sample
+d41d8cd98f00b204e9800998ecf8427e,hash,empty file md5 test,low,local lab sample
+

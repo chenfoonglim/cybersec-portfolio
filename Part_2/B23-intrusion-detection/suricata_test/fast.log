@@ -1,0 +1,1 @@
+05/22/2026-17:05:02.517073  [**] [1:1000002:1] B23 TEST encoded SQL injection attempt [**] [Classification: (null)] [Priority: 3] {TCP} 127.0.0.1:51144 -> 127.0.0.1:8080
